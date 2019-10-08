@@ -58,7 +58,7 @@ public class Collections {
         hmap.put("James Madison", "1809 - 1825");
         hmap.put("John Quincy Adams", "1825 - 1829");
 
-        System.out.println("The first presidents of the United were: \n");
+        System.out.println("The first presidents of the United States were: \n");
 
         hmap.forEach((k,v) -> System.out.println("President - " + k 
                 + ", Presided from " + v + "\n"));
