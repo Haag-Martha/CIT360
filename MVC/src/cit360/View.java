@@ -3,165 +3,75 @@ package cit360;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-/**
-*
-* @author martha
-*/
-
-public class View extends JFrame {
+//This view is the only thing the user will see.  It gives it a prettier look than the console
+public class View extends JFrame{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField firstNumber  = new JTextField(10);
-    private JLabel additionLabel = new JLabel("+");
-    private JTextField secondNumber = new JTextField(10);
-    private JButton calculateButton = new JButton("=");
-    private JTextField calcSolution = new JTextField(10);
-
-    private JTextField thirdNumber  = new JTextField(10);
-    private JLabel subtractionLabel = new JLabel("- ");
-    private JTextField fourthNumber = new JTextField(10);
-    private JButton calculateButton2 = new JButton("=");
-    private JTextField calcSolution2 = new JTextField(10);
-
-    private JTextField fifthNumber  = new JTextField(10);
-    private JLabel multiplyLabel = new JLabel("*");
-    private JTextField sixthNumber = new JTextField(10);
-    private JButton calculateButton3 = new JButton("=");
-    private JTextField calcSolution3 = new JTextField(10);
-
-    private JTextField seventhNumber  = new JTextField(10);
-    private JLabel divideLabel = new JLabel("/");
-    private JTextField eigthNumber = new JTextField(10);
-    private JButton calculateButton4 = new JButton("=");
-    private JTextField calcSolution4 = new JTextField(10);
-
-    View(){
-
-        // Sets up the view and adds components
-
-        JPanel calcPanel = new JPanel();
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(550, 200);
-
-        calcPanel.add(firstNumber);
-        calcPanel.add(additionLabel);
-        calcPanel.add(secondNumber);
-        calcPanel.add(calculateButton);
-        calcPanel.add(calcSolution);
-                
-                calcPanel.add(thirdNumber);
-        calcPanel.add(subtractionLabel);
-        calcPanel.add(fourthNumber);
-        calcPanel.add(calculateButton2);
-        calcPanel.add(calcSolution2);
-                
-                calcPanel.add(fifthNumber);
-        calcPanel.add(multiplyLabel);
-        calcPanel.add(sixthNumber);
-        calcPanel.add(calculateButton3);
-        calcPanel.add(calcSolution3);
-                
-                calcPanel.add(seventhNumber);
-        calcPanel.add(divideLabel);
-        calcPanel.add(eigthNumber);
-        calcPanel.add(calculateButton4);
-        calcPanel.add(calcSolution4);
-
-                
-        this.add(calcPanel);
-        // End
-
-    }
-
-    public int getFirstNumber(){
-        return Integer.parseInt(firstNumber.getText());
-    }
-
-    public int getSecondNumber(){
-        return Integer.parseInt(secondNumber.getText());
-    }
-
-        public int getThirdNumber(){
-        return Integer.parseInt(thirdNumber.getText());
-    }
-
-    public int getFourthNumber(){
-        return Integer.parseInt(fourthNumber.getText());
-    }
-
-        public int getFifthNumber(){
-        return Integer.parseInt(fifthNumber.getText());
-    }
-
-    public int getSixthNumber(){
-        return Integer.parseInt(sixthNumber.getText());
-    }
-
-        public int getSeventhNumber(){
-        return Integer.parseInt(seventhNumber.getText());
-    }
-
-    public int getEigthNumber(){
-        return Integer.parseInt(eigthNumber.getText());
-    }
-
-    public int getCalcSolution(){
-        return Integer.parseInt(calcSolution.getText());
-    }
-
-    public void setCalcSolution(int solution){
-        calcSolution.setText(Integer.toString(solution));
-    }
-
-        public int getCalcSolution2(){
-        return Integer.parseInt(calcSolution2.getText());
-    }
-
-    public void setCalcSolution2(int solution){
-        calcSolution2.setText(Integer.toString(solution));
-    }
-
-        public int getCalcSolution3(){
-        return Integer.parseInt(calcSolution3.getText());
-    }
-
-    public void setCalcSolution3(int solution){
-        calcSolution3.setText(Integer.toString(solution));
-    }
-
-        public int getCalcSolution4(){
-        return Integer.parseInt(calcSolution4.getText());
-    }
-
-    public void setCalcSolution4(int solution){
-        calcSolution4.setText(Integer.toString(solution));
-    }
-    // If the calculateButton is pressed, a method is executed
-    // in the controller named actionPerformed
-
-    void addCalculateListener(ActionListener listenForCalcButton){
-        calculateButton.addActionListener(listenForCalcButton);
-    }
-
-        void addCalculateListener2(ActionListener listenForCalcButton){
-        calculateButton2.addActionListener(listenForCalcButton);
-    }
-
-        void addCalculateListener3(ActionListener listenForCalcButton){
-        calculateButton3.addActionListener(listenForCalcButton);
-    }
-
-        void addCalculateListener4(ActionListener listenForCalcButton){
-        calculateButton4.addActionListener(listenForCalcButton);
-    }
-
-    // Opens a pop-up that contains the passed error message
-
-    void displayErrorMessage(String errorMessage){
-        JOptionPane.showMessageDialog(this, errorMessage);
-    }	
+	//create labels, input boxes and a button
+	private JLabel priceLabel = new JLabel("Cost of the Home");
+	private JTextField price = new JTextField(10);
+	private JLabel yearsLabel = new JLabel("Loan Term in Years (15 or 30)");
+	private JTextField years = new JTextField(4);
+	private JLabel downPaymentLabel = new JLabel("Down Payment");
+	private JTextField downPayment=new JTextField(10);
+	private JButton calculateButton =new JButton("Calculate Mortgage Payment");
+	private JTextField calculateMortgage = new JTextField(10);
+	private JLabel disclaimerLabel =new JLabel("Taxes and insurance are not included.");
+	
+	//method to set up the interface for the user
+	View(){
+		/*create a new JPanel*/
+		JPanel calculatePanel = new JPanel();
+		// tell the system to exit when user closes the panel
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//size the panel
+		this.setSize(600,200);
+		
+		//add the parts of the calculator to the panel
+		calculatePanel.add(priceLabel);
+		calculatePanel.add(price);
+		calculatePanel.add(yearsLabel);
+		calculatePanel.add(years);
+		calculatePanel.add(downPaymentLabel);
+		calculatePanel.add(downPayment);
+		calculatePanel.add(calculateButton);
+		calculatePanel.add(calculateMortgage);
+		calculatePanel.add(disclaimerLabel);
+		//adds calculatePanel to the JFrame
+		this.add(calculatePanel);
+	}
+		
+	public double getPrice() {
+		//change the price to a double
+		return Double.parseDouble(price.getText());
+	}
+	public int getYears() {
+		//change years into int
+		return Integer.parseInt(years.getText());
+	}
+	public double getDownPayment() {
+		//down payment to double
+		return Double.parseDouble(downPayment.getText());
+	}
+	public double getcalculateMortgage() {
+		//change payment to double
+		return Double.parseDouble(calculateMortgage.getText());
+	}
+	
+	//convert double to string for display in the panel
+	public void setCalculateMortgage(double mortgage) {
+		calculateMortgage.setText(Double.toString(mortgage));
+	}
+	
+	//need to alert controller when button is pressed since the view is blind
+	void addCalculateMortgageListener(ActionListener CalculateMortgageButton) {
+		calculateButton.addActionListener(CalculateMortgageButton);
+	}
+	//send error message to user if fields are empty
+	void errorMessage(String errorMessage) {
+		JOptionPane.showMessageDialog(this, errorMessage);
+	}
 }

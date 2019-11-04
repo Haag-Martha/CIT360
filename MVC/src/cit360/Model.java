@@ -1,38 +1,34 @@
 package cit360;
 
-/**
-*
-* @author martha
-*/
-
+//create model
 public class Model {
 
-	 private View theView;
+	//the calculated mortgage payment for the user
+	private double mortgagePayment;
+	
+	public void calculateMortgage(double price, int years, double downPayment) {
+		//create variables
+		double interestRate = 0;
+		double remainingBalance = price - downPayment;
+		int months = years * 12;
 
-	    // Holds the value of the sum of the numbers
-	    // entered in the view
-	    
-	    private int calculationValue;
-	    
-	    public void addTwoNumbers(int firstNumber, int secondNumber){
-	        calculationValue = firstNumber + secondNumber;
-	    }
-	    public void subtractTwoNumbers(int thirdNumber, int fourthNumber){
-	        calculationValue = thirdNumber - fourthNumber;
-	    }
-	        public void multiplyTwoNumbers(int fifthNumber, int sixthNumber){
-	        calculationValue = fifthNumber * sixthNumber;
-	    }
-	        public void divideTwoNumbers(int seventhNumber, int eigthNumber){       
-	                    calculationValue = seventhNumber / eigthNumber;
-	    }
-	    public int getCalculationValue(){
-	        return calculationValue;
-	    }
-		public View getTheView() {
-			return theView;
+ 
+		//tell program what interest rate to use depending on what user enters for term
+		if (years == 15) {
+			interestRate = .03;
+		} else if (years == 30) {
+			interestRate = .04;
+
 		}
-		public void setTheView(View theView) {
-			this.theView = theView;
-		}
+
+		//calculate payment
+		mortgagePayment = Math.round(((interestRate / 12) * remainingBalance)
+				/ (1 - Math.pow((1 + (interestRate / 12)), -months)));
+
+		
+	}
+	// method to get the mortgage payment from the model
+	public double getMortgagePayment() {
+		return mortgagePayment;
+	}
 }
