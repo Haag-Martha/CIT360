@@ -147,13 +147,16 @@ public class JavaCollections {
         }
 
         //Get a specific element based on key
-        	System.out.println("\nSpecific Value: " + employeeMap.get(60));
+        	System.out.println("\nSpecific Value based on key: " + employeeMap.get(60));
 
         	
         //example of HashSet
         HashSet<String> countries = new HashSet<String>();
 
+        //declareing the HashSet
+        System.out.println("\nList of Countries: \n");
         //adding items to the list
+        
         countries.add("United Kingdom");
         countries.add("France");
         countries.add("Spain");
@@ -167,7 +170,7 @@ public class JavaCollections {
 
         //removing items
         countries.remove("Portugal");
-        System.out.println("List after removing Portugal: " + countries);
+        System.out.println("\nList after removing Portugal: \n" + countries);
 
         }
     	}   
