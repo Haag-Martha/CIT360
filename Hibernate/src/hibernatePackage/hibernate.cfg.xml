@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/family</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">IWillNeverTell</property>
+
+        <!--JDBC connection pool-->
+        <property name="connection.pool_size">1</property>
+
+        <!--SQL dialect-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!--Enable hibernate's automatic session context management-->
+       <property name="current_session_context_class">thread</property>
+
+        <!--Echo all executed SQL to Stdout-->
+        <property name="show_sql">true</property>
+
+        <!--Mapping to classes. This is the path to the family class. By including this,
+        it eliminates the need a mapping XML file-->
+        <mapping class="hibernatePackage.Family"/>
+
+    </session-factory>
+</hibernate-configuration>
