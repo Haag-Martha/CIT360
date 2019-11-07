@@ -22,14 +22,12 @@ public class Family {
     @Column(name = "id")
     private int id;
 
-    /*tell hibernate that this field
-    * relates to the column "name" in the family
+    /*this field relates to the column "name" in the family
     * table.*/
     @Column(name = "name")
     private String name;
 
-    /*tell hibernate that this field
-     * relates to the column "dob" (date of birth) in the family
+    /*this field relates to the column "dob" (date of birth) in the family
      * table.*/
     @Column(name="dob")
     private String dob;
