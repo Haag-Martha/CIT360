@@ -28,7 +28,7 @@ public class Utilities {
        /*If something goes wrong with the creation of the session,
        * catch and display error message.*/
         }catch(Throwable ex){
-            System.err.println("Creation Failed." +ex);
+            System.err.println("Session failed to start." +ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
